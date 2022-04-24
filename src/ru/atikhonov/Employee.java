@@ -10,6 +10,11 @@ public class Employee {
     private int id;
 
     Employee(String lastName, String firstName, String middleName, int department, int salary) {
+        if(department == 0) throw new RuntimeException("Номер отдела не может быть меньше 1");
+        if(firstName == "") throw new RuntimeException("Вы не ввели имя сотрудника");
+        if(lastName == "") throw new RuntimeException("Вы не ввели фамилию сотрудника");
+        if(middleName == "") throw new RuntimeException("Вы не ввели отчество сотрудника");
+        if(salary < 50_000) throw new RuntimeException("Введите корректное значение зп");
         this.lastName = lastName;
         this.middleName = middleName;
         this.firstName = firstName;
@@ -43,10 +48,12 @@ public class Employee {
     }
 
     public void setDepartment(int department) {
+        if(department == 0) throw new RuntimeException("Номер отдела не может быть меньше 1");
         this.department = department;
     }
 
     public void setSalary(int salary) {
+        if(salary < 50_000) throw new RuntimeException("Введите корректное значение зп");
         this.salary = salary;
     }
 
