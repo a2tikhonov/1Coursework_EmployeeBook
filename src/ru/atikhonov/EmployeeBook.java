@@ -223,9 +223,8 @@ public class EmployeeBook {
     }
 
     public void printEmployeesWithSalaryLessThan(int salary) {
-        int minimumSalary = 0;
         printDelimiter();
-        for (int i = 0; i < size && minimumSalary == 0; i++) {
+        for (int i = 0; i < size; i++) {
             if (employees[i].getSalary() < salary) {
                 printEmployeeData(i, true, true, false, true);
             }
@@ -234,7 +233,6 @@ public class EmployeeBook {
     }
 
     public void printEmployeesWithSalaryMoreOrEquals(int salary) {
-        int maximumSalary = 0;
         printDelimiter();
         for (int i = 0; i < size; i++) {
             if (salary <= employees[i].getSalary()) {
