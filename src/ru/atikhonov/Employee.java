@@ -10,11 +10,11 @@ public class Employee {
     private int id;
 
     Employee(String lastName, String firstName, String middleName, int department, int salary) {
-//        if(department == 0) throw new IllegalArgumentException("Номер отдела не может быть меньше 1");
-//        if(firstName == "") throw new IllegalArgumentException("Вы не ввели имя сотрудника");
-//        if(lastName == "") throw new IllegalArgumentException("Вы не ввели фамилию сотрудника");
-//        if(middleName == "") throw new IllegalArgumentException("Вы не ввели отчество сотрудника");
-//        if(salary < 50_000) throw new IllegalArgumentException("Введите корректное значение зп");
+        if(department == 0) throw new IllegalArgumentException("Номер отдела не может быть меньше 1");
+        if(firstName == "") throw new IllegalArgumentException("Вы не ввели имя сотрудника");
+        if(lastName == "") throw new IllegalArgumentException("Вы не ввели фамилию сотрудника");
+        if(middleName == "") throw new IllegalArgumentException("Вы не ввели отчество сотрудника");
+        if(salary < 50_000) throw new IllegalArgumentException("Введите корректное значение зп");
         this.lastName = lastName;
         this.middleName = middleName;
         this.firstName = firstName;
