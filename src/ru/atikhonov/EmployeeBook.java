@@ -93,13 +93,9 @@ public class EmployeeBook {
     }
 
     public int findMinimumSalaryEmployee() {
-        int minimumSalary = 0;
+        int minimumSalary = employees[0].getSalary();
         int id = 0;
-        for (int i = 0; i < size && minimumSalary == 0; i++) {
-                minimumSalary = employees[i].getSalary();
-                id = employees[i].getId();
-        }
-        for (int i = 0; i < size; i++) {
+        for (int i = 1; i < size; i++) {
             if (minimumSalary > employees[i].getSalary()) {
                 minimumSalary = employees[i].getSalary();
                 id = employees[i].getId();
