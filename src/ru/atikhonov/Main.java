@@ -1,7 +1,5 @@
 package ru.atikhonov;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -16,29 +14,30 @@ public class Main {
         employeeBook.addNewEmployee(alekdsandrov3);
         employeeBook.addNewEmployee(petrov);
         employeeBook.addNewEmployee(alekdsandrov);
-//        System.out.println("Сумма затрат на зарплаты в месяц " + employeeBook.formatSalary(employeeBook.calculateSalaryCosts()) + " р.");
-//        System.out.println("Cотрудник с минимальной зарплатой " + employeeBook.getEmployeeFullNameById(employeeBook.findMinimumSalaryEmployee()));
-//        System.out.println("Cотрудник с максимальной зарплатой " + employeeBook.getEmployeeFullNameById(employeeBook.findMaximumSalaryEmployee()));
-//        System.out.println("Среднее значение зарплат " + employeeBook.formatSalary((int) employeeBook.calculateSalariesAverage()) + " р.");
-//        employeeBook.printAllEmployees();
-//        employeeBook.raiseAllEmployees(20);
-//        System.out.println("Cотрудник с минимальной зарплатой 2-го отдела " + employeeBook.getEmployeeFullNameById(employeeBook.findMinimumSalaryEmployee(2)));
-//        System.out.println("Cотрудник с максимальной зарплатой 2-го отдела " + employeeBook.getEmployeeFullNameById(employeeBook.findMaximumSalaryEmployee(2)));
-//        System.out.println("Средняя зарплата по отделу " + employeeBook.formatSalary((int)employeeBook.calculateSalariesAverage(2)) + " р.");
-//        employeeBook.raiseAllEmployees(2, 20);
-//        employeeBook.printEmployeesOfDepartment(2);
-//        employeeBook.printEmployeesWithSalaryLessThan(350_000);
-//        employeeBook.printEmployeesWithSalaryMoreOrEquals(288_000);
+        employeeBook.printAllEmployees();
+        System.out.println("Сумма затрат на зарплаты в месяц " + employeeBook.formatSalary(employeeBook.calculateSalaryCosts()) + " р.");
+        System.out.println("Cотрудник с минимальной зарплатой " + employeeBook.getEmployeeFullNameById(employeeBook.findMinimumSalaryEmployee()));
+        System.out.println("Cотрудник с максимальной зарплатой " + employeeBook.getEmployeeFullNameById(employeeBook.findMaximumSalaryEmployee()));
+        System.out.println("Среднее значение зарплат " + employeeBook.formatSalary((int) employeeBook.calculateSalariesAverage()) + " р.");
+        employeeBook.printAllEmployeesNames();
+        employeeBook.raiseAllEmployees(20);
+        System.out.println("Cотрудник с минимальной зарплатой 2-го отдела " + employeeBook.getEmployeeFullNameById(employeeBook.findMinimumSalaryEmployee(2)));
+        System.out.println("Cотрудник с максимальной зарплатой 2-го отдела " + employeeBook.getEmployeeFullNameById(employeeBook.findMaximumSalaryEmployee(2)));
+        System.out.println("Средняя зарплата по отделу " + employeeBook.formatSalary((int)employeeBook.calculateSalariesAverage(2)) + " р.");
+        employeeBook.raiseAllEmployees(2, 20);
+        employeeBook.printEmployeesOfDepartment(2);
+        employeeBook.printEmployeesWithSalaryLessThan(350_000);
+        employeeBook.printEmployeesWithSalaryMoreOrEquals(288_000);
         employeeBook.addNewEmployee("Васильев", "Василий", "Васильевич", 3, 440_000);
-//        employeeBook.printEmployeesOfDepartment(3);
+        employeeBook.printEmployeesOfDepartment(3);
+        employeeBook.deleteEmployee("Петров", "Петр", "Петрович");
         employeeBook.deleteEmployee(petrov);
-        //employeeBook.deleteEmployee("Петров", "Петр", "Петрович");
-//        employeeBook.printEmployeesOfDepartment(2);
-//        employeeBook.changeEmployeeSalary("Васильев", "Василий", "Васильевич", 480_000);
-//        employeeBook.printEmployeesOfDepartment(3);
-//        employeeBook.changeEmployeeDepartment("Васильев", "Василий", "Васильевич", 1);
-//        employeeBook.printEmployeesOfDepartment(1);
-//        employeeBook.printAllEmployeesByDepartments();
-//        employeeBook.printAllEmployees();
+        employeeBook.printEmployeesOfDepartment(2);
+        employeeBook.changeEmployeeSalary("Васильев", "Василий", "Васильевич", 480_000);
+        employeeBook.printEmployeesOfDepartment(3);
+        employeeBook.changeEmployeeDepartment("Васильев", "Василий", "Васильевич", 1);
+        employeeBook.printEmployeesOfDepartment(1);
+        employeeBook.printAllEmployeesByDepartments();
+        employeeBook.printAllEmployees();
     }
 }
