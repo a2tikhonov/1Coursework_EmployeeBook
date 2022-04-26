@@ -156,14 +156,12 @@ public class EmployeeBook {
 
     public float calculateSalariesAverage(int department) {
         int sumOfSalaries = 0;
-        int numberOfEmployees = 0;
         for (int i = 0; i < size; i++) {
             if (employees[i].getDepartment() == department) {
                 sumOfSalaries += employees[i].getSalary();
-                numberOfEmployees++;
             }
         }
-        return (float) sumOfSalaries/numberOfEmployees;
+        return (float) sumOfSalaries/size;
     }
 
     public void raiseAllEmployees(int percentage) {
