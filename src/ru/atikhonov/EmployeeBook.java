@@ -5,40 +5,61 @@ import java.util.Arrays;
 
 public class EmployeeBook {
     private Employee[] employees;
+    private int size;
 
     EmployeeBook(int maxNumberOfEmployees) {
         this.employees = new Employee[maxNumberOfEmployees];
     }
 
-    public void addNewEmployee(String lastname, String fisrtName, String middleName, int department, int salary) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] == null) {
-                employees[i] = new Employee(lastname, fisrtName, middleName, department, salary);
-                break;
-            }
+    public void addNewEmployee(String lastname, String firstName, String middleName, int department, int salary) {
+        if (size >= employees.length) {
+            System.out.println("Книга сотрудников заполнена. Сотрудник не добавлен");
+            return;
         }
+        employees[size++] = new Employee(lastname, firstName, middleName, department, salary);
     }
 
     public void addNewEmployee(Employee newEmployee) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] == null) {
-                employees[i] = newEmployee;
-                break;
-            }
+        if (size >= employees.length) {
+            System.out.println("Книга сотрудников заполнена. Сотрудник не добавлен");
+            return;
         }
+        employees[size++] = newEmployee;
     }
 
     public void deleteEmployee(String lastName, String firstName, String middleName) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getLastName().equals(lastName) && employees[i].getFirstName().equals(firstName)
-                    && employees[i].getMiddleName().equals(middleName)) employees[i] = null;
+        for (int i = 1; i <= employees.length; i++) {
+            if (employees[i - 1].getLastName().equals(lastName) && employees[i - 1].getFirstName().equals(firstName)
+                    && employees[i-1].getMiddleName().equals(middleName)) {
+                Employee employeeToDelete;
+                employeeToDelete = employees[i - 1];
+                employees[i - 1] = null;
+                if (i != employees.length)  System.arraycopy(employees, i , employees, i - 1, size - i);
+                employees[size - 1] = null;
+                size--;
+                System.out.println(Arrays.toString(employees));
+                System.out.println(employeeToDelete.toString() + " удален из книги");
+                return;
+            }
         }
+        System.out.println(lastName + " " + firstName + " не найден в книге");
     }
 
     public void deleteEmployee(Employee employee) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getId() == employee.getId()) employees[i] = null;
+        for (int i = 1; i <= employees.length; i++) {
+            if (employee.equals(employees[i - 1])) {
+                Employee employeeToDelete;
+                employeeToDelete = employees[i - 1];
+                employees[i - 1] = null;
+                if (i != employees.length)  System.arraycopy(employees, i, employees, i - 1, size - i);
+                employees[size - 1] = null;
+                size--;
+                System.out.println(Arrays.toString(employees));
+                System.out.println(employeeToDelete.toString() + " удален из книги");
+                return;
+            }
         }
+        System.out.println(employee.getLastName() + " не найден в книге");
     }
 
     public void changeEmployeeSalary(String lastName, String firstName, String middleName, int newSalary) {
@@ -180,8 +201,7 @@ public class EmployeeBook {
     public String getEmployeeFullNameById(int id) {
         String fullName = null;
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i] != null && employees[i].getId() == id) fullName = employees[i].getLastName() + " " + employees[i].getFirstName() +
-                    " "  + employees[i].getMiddleName();
+            if(employees[i] != null && employees[i].getId() == id) fullName = employees[i].toString();
         }
         return fullName;
     }
@@ -271,7 +291,6 @@ public class EmployeeBook {
         for (int i = 0; i < outcomingArray.length; i++) {
             outcomingArray[i] = tempArray[i];
         }
-        //System.out.println(Arrays.toString(outcomingArray));
         return outcomingArray;
     }
 
